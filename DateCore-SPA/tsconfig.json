@@ -15,6 +15,9 @@
     }
 ],
   "compilerOptions": {
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "typeRoots": [
+      "src/typings.d.ts"
+    ]
   }
 }
