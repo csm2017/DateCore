@@ -12,11 +12,15 @@ import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { appRoutes } from './routes';
+import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
+import { MemberListResolver } from './_resolvers/member-list.resolver';
 
 @NgModule({
   declarations: [
@@ -27,12 +31,14 @@ import { appRoutes } from './routes';
       MemberListComponent,
       ListsComponent,
       MessagesComponent,
-      MemberCardComponent
+      MemberCardComponent,
+      MemberDetailComponent
    ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    TabsModule.forRoot(),
     BrowserAnimationsModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
@@ -49,7 +55,9 @@ import { appRoutes } from './routes';
   ],
   providers: [
     AuthService,
-    ErrorInterceptorProvider
+    ErrorInterceptorProvider,
+    MemberDetailResolver,
+    MemberListResolver
   ],
   bootstrap: [AppComponent]
 })
